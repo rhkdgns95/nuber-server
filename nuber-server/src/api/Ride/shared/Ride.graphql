@@ -1,0 +1,29 @@
+type Ride{
+    id: Int!
+    status: String!
+    
+    pickUpAddress: String!
+    pickUpLat: Float!
+    pickUpLng: Float!
+
+    dropOffAddress: String!
+    dropOffLat: Float!
+    dropOffLng: Float!
+    
+    price: Float!
+    duration: String!
+    distance: String!
+
+
+    driver: User!
+    driverId: Int
+
+    passenger: User!
+    passengerId: Int!
+
+    chat: Chat
+    chatId: Int
+
+    createdAt: String!
+    updatedAt: String
+}
