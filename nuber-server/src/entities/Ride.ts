@@ -35,6 +35,7 @@ class Ride extends BaseEntity{
     chatId: number;
 
     // 1:1 관계에서 주인은 Ride이다. Ride가 존재해야 Chat도 필요해지기 때문이다.
+    // ride상태가 REQUESTING이라면 chat이 존재하지않는다. 즉 chat은 ride가 ACCEPTED되어야만 생성이 된다.
     @OneToOne(type => Chat, chat => chat.ride, {nullable: true})
     @JoinColumn()
     chat: Chat;
@@ -47,7 +48,7 @@ class Ride extends BaseEntity{
 
     @ManyToOne(type => User, user => user.ridesAsPassenger)
     passenger: User;
-
+    
     @ManyToOne(type => User, user => user.ridesAsDriver, {nullable: true})
     driver: User;
 

@@ -6,7 +6,7 @@ import Message from "../../../entities/Message";
 import Chat from "../../../entities/Chat";
 
 const resolvers: Resolvers = {
-    Mutation: {
+    Mutation: {  
         SendChatMessage: privateResolver(async(_, args: SendChatMessageMutationArgs, {req, pubSub}): Promise<SendChatMessageResponse> => {
             const user: User = req.user;
             const {text, chatId} = args;
